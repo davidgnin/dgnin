@@ -1,0 +1,38 @@
+{
+  "name": "dgnin",
+  "version": "1.0.0",
+  "description": "Just the code behind my (very simple) professional website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidgnin/dgnin.git"
+  },
+  "author": "David Gómez Nin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/davidgnin/dgnin/issues"
+  },
+  "homepage": "https://github.com/davidgnin/dgnin#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.0",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jscs": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  }
+}
