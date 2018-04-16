@@ -36,6 +36,7 @@
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "smoothscroll-polyfill": "^0.4.3"
   }
 }

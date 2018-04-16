@@ -79,6 +79,7 @@ h1, h2 {
 .web-section {
   box-sizing: border-box;
   position: relative;
+  height: 100%;
 }
 
 #web-svg {
@@ -108,53 +109,48 @@ h1, h2 {
   position: absolute;
   bottom: 1em;
   margin: 0 .8em;
-}
-#web-nav ul {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-}
-#web-nav li {
-  width: 2.4em;
-  height: 2.4em;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-top: 1.6em;
-  transition: background-color $time;
-}
-  #web-nav li:hover {
+
+  ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    width: 2.4em;
+    height: 2.4em;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 1.6em;
+    transition: background-color $time;
+  }
+  li:hover {
     background-color: #444;
   }
-#web-nav .label {
-  display: none;
-  opacity: 0;
-  transition: opacity $time;
-  align-items: center;
-}
-  #web-nav .label .arrow {
 
+  .label {
+    display: none;
+    opacity: 0;
+    transition: opacity $time;
+    align-items: center;
   }
-#web-nav li:hover .label {
-  display: flex;
-}
-#web-nav .circle {
-  position: absolute;
-  border-radius: 50%;
-  width: 2.4em;
-  height: 2.4em;
-  left: 0;
-  margin-top: 1.6em;
-  z-index: -1;
-  transition: background-color $time;
-}
-  #web-nav .circle.dg-active {
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    width: 2.4em;
+    height: 2.4em;
+    left: 0;
+    margin-top: 1.6em;
+    z-index: -1;
+    transition: background-color $time;
+  }
+
+  .circle.dg-active {
     transition: top $time;
   }
+}
 
 #web-main {
   margin-left: 4em;
-}
-
-.web-section {
-  height: 100%;
 }
