@@ -11,6 +11,8 @@ import clean from 'gulp-clean';
 import runSequence from 'run-sequence';
 import sass from 'gulp-sass';
 import cssmin from 'gulp-cssmin';
+import template from 'gulp-template';
+import transCA from './translates/ca';
 
 const NAME = 'script';
 
@@ -50,8 +52,15 @@ gulp.task('build-css', function () {
     .pipe(gulp.dest('build'));
 });
 
+gulp.task('build-html', function () {
+  gulp.src('html/index.html')
+    .pipe(template(transCA))
+    .pipe(gulp.dest('build'))
+});
+
 gulp.task('build', function () {
-  return runSequence('build-1', 'build-2', 'build-3', 'build-css');
+  return runSequence('build-1', 'build-2', 'build-3', 'build-css',
+    'build-html');
 });
 
 gulp.task('build-4', function () {
@@ -62,5 +71,6 @@ gulp.task('build-4', function () {
 });
 
 gulp.task('build-min', function () {
-  return runSequence('build-1', 'build-2', 'build-3', 'build-4', 'build-css');
+  return runSequence('build-1', 'build-2', 'build-3', 'build-4', 'build-css',
+    'build-html');
 });
