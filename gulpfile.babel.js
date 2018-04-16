@@ -9,6 +9,8 @@ import rename from 'gulp-rename';
 import concat from 'gulp-concat';
 import clean from 'gulp-clean';
 import runSequence from 'run-sequence';
+import sass from 'gulp-sass';
+import cssmin from 'gulp-cssmin';
 
 const NAME = 'script';
 
@@ -41,8 +43,15 @@ gulp.task('build-3', function () {
   return gulp.src(`build/${NAME}-tmp.js`).pipe(clean());
 });
 
+gulp.task('build-css', function () {
+  return gulp.src('scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssmin())
+    .pipe(gulp.dest('build'));
+});
+
 gulp.task('build', function () {
-  return runSequence('build-1', 'build-2', 'build-3');
+  return runSequence('build-1', 'build-2', 'build-3', 'build-css');
 });
 
 gulp.task('build-4', function () {
@@ -53,5 +62,5 @@ gulp.task('build-4', function () {
 });
 
 gulp.task('build-min', function () {
-  return runSequence('build-1', 'build-2', 'build-3', 'build-4');
+  return runSequence('build-1', 'build-2', 'build-3', 'build-4', 'build-css');
 });
