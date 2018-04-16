@@ -1,0 +1,18 @@
+#home {
+  height: 100%;
+  background-image: url('images/home.jpg');
+  background-size: cover;
+  background-position: center;
+
+  .content {
+    width: 16em;
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    text-shadow: 0 0 .5em rgba(0,0,0,.5);
+  }
+
+  .subtitle {
+    margin-top: .5em;
+  }
+}

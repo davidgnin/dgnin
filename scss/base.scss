@@ -1,0 +1,160 @@
+html, body {
+  height: 100%;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 25px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color $time;
+  color: #FFF;
+}
+body.dg-skills #web-nav .circle,
+body.dg-portfolio #web-nav .circle,
+body.dg-curriculum #web-nav .circle,
+body.dg-contact #web-nav .circle {
+  transition: top $time;
+}
+body.dg-skills #web-nav li.skills:hover,
+body.dg-portfolio #web-nav li.portfolio:hover,
+body.dg-curriculum #web-nav li.curriculum:hover,
+body.dg-contact #web-nav li.contact:hover {
+  cursor: default;
+  background-color: transparent;
+}
+  body.dg-home {
+    background-color: $orange;
+  }
+    body.dg-home #web-header h1 {
+      color: $orange;
+    }
+    body.dg-home #web-nav .circle {
+      display: none;
+    }
+  body.dg-skills, body.dg-skills #web-nav .circle {
+    background-color: $green;
+  }
+    body.dg-skills #web-header h1 {
+      color: $green;
+    }
+    body.dg-skills #web-nav .circle {
+      top: 0;
+    }
+  body.dg-portfolio, body.dg-portfolio #web-nav .circle {
+    background-color: $red;
+  }
+    body.dg-portfolio #web-header h1 {
+      color: $red;
+    }
+    body.dg-portfolio #web-nav .circle {
+      top: 4em;
+    }
+  body.dg-curriculum, body.dg-curriculum #web-nav .circle {
+    background-color: $violet;
+  }
+    body.dg-curriculum #web-header h1 {
+      color: $violet;
+    }
+    body.dg-curriculum #web-nav .circle {
+      top: 8em;
+    }
+  body.dg-contact, body.dg-contact #web-nav .circle {
+    background-color: $yellow;
+  }
+    body.dg-contact #web-header h1 {
+      color: $yellow;
+    }
+    body.dg-contact #web-nav .circle {
+      top: 12em;
+    }
+h1, h2 {
+  margin: 0;
+}
+
+.icon {
+  fill: #FFF;
+  max-width: 100%;
+  max-height: 100%;
+}
+.web-section {
+  box-sizing: border-box;
+  position: relative;
+}
+
+#web-svg {
+  display: none;
+}
+
+#web-header {
+  width: 4em;
+  height: 100%;
+  background-color: #2D3436;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+  #web-header h1 {
+    transform: rotate(-90deg);
+    margin-top: 3em;
+    cursor: pointer;
+    transition: color $time;
+  }
+    #web-header h1 em {
+      color: #FFF;
+      font-style: normal;
+    }
+
+#web-nav {
+  position: absolute;
+  bottom: 1em;
+  margin: 0 .8em;
+}
+#web-nav ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+#web-nav li {
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 1.6em;
+  transition: background-color $time;
+}
+  #web-nav li:hover {
+    background-color: #444;
+  }
+#web-nav .label {
+  display: none;
+  opacity: 0;
+  transition: opacity $time;
+  align-items: center;
+}
+  #web-nav .label .arrow {
+
+  }
+#web-nav li:hover .label {
+  display: flex;
+}
+#web-nav .circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 2.4em;
+  height: 2.4em;
+  left: 0;
+  margin-top: 1.6em;
+  z-index: -1;
+  transition: background-color $time;
+}
+  #web-nav .circle.dg-active {
+    transition: top $time;
+  }
+
+#web-main {
+  margin-left: 4em;
+}
+
+.web-section {
+  height: 100%;
+}
