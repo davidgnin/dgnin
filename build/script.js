@@ -1,26 +1,185 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict';
 
+var _pubsub = require('./pubsub');
+
+var _pubsub2 = _interopRequireDefault(_pubsub);
+
+var _sectionSwitcher = require('./section-switcher');
+
+var _sectionSwitcher2 = _interopRequireDefault(_sectionSwitcher);
+
+var _scrollController = require('./scroll-controller');
+
+var _scrollController2 = _interopRequireDefault(_scrollController);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(function dgnin() {
+  var config = {
+    section: 'home',
+    ps: (0, _pubsub2.default)()
+  };
+  (0, _sectionSwitcher2.default)(config);
+  (0, _scrollController2.default)(config);
+})();
+
+},{"./pubsub":2,"./scroll-controller":3,"./section-switcher":4}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var pubsub = function pubsub() {
+  var subs = [];
+
+  var on = function on(ev, handler) {
+    if (!ev || typeof ev !== 'string' || typeof handler !== 'function') {
+      throw 'pubsub on needs a valid event name and a handler function';
+    }
+
+    if (subs[ev] === undefined) {
+      subs[ev] = [];
+    }
+    subs[ev].push(handler);
+  };
+
+  var off = function off(ev, handler) {
+    if (!ev && ev !== undefined || ev && typeof ev !== 'string' || !handler && handler !== undefined || handler && typeof handler !== 'function' || ev === undefined && handler !== undefined) {
+      throw 'pubsub off needs a valid event name (if provided) and a handler ' + 'function (if provided). Also you can\'t provide a handler but not an ' + 'event name.';
+    }
+
+    if (ev) {
+      if (handler) {
+        if (subs[ev]) {
+          for (var i = 0, length = subs[ev].length; i < length; i++) {
+            if (subs[ev][i] === handler) {
+              subs[ev].splice(i, 1);
+              break;
+            }
+          }
+        }
+      } else {
+        subs[ev] = undefined;
+      }
+    } else {
+      subs = [];
+    }
+  };
+
+  var trigger = function trigger(ev, input) {
+    if (!ev || typeof ev !== 'string') {
+      throw 'pubsub trigger needs a valid event name';
+    }
+
+    if (subs[ev]) {
+      for (var i = 0, length = subs[ev].length; i < length; i++) {
+        subs[ev][i](input);
+      }
+    }
+  };
+
+  return {
+    on: on,
+    off: off,
+    trigger: trigger
+  };
+};
+
+exports.default = pubsub;
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var scrollController = function scrollController(config) {
+  var sections = [{
+    el: document.getElementById('home'),
+    name: 'home'
+  }, {
+    el: document.getElementById('skills'),
+    name: 'skills'
+  }, {
+    el: document.getElementById('portfolio'),
+    name: 'portfolio'
+  }, {
+    el: document.getElementById('curriculum'),
+    name: 'curriculum'
+  }, {
+    el: document.getElementById('contact'),
+    name: 'contact'
+  }];
+  var range = void 0,
+      scrollTimeout = void 0,
+      scrollMode = false;
+
+  var checkPosition = function checkPosition() {
+    if (scrollMode) {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function () {
+        scrollMode = false;
+        checkPosition();
+      }, 100);
+    } else {
+      for (var i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].el.getBoundingClientRect().top <= range) {
+          if (config.section !== sections[i].name) {
+            config.ps.trigger('section-changed', sections[i].name);
+          }
+          break;
+        }
+      }
+    }
+  };
+
+  var calcVars = function calcVars() {
+    range = Math.round(Math.max(document.documentElement.clientHeight, window.innerHeight || 0) / 2);
+    checkPosition();
+  };
+
+  window.addEventListener('scroll', checkPosition);
+  window.addEventListener('resize', calcVars);
+  calcVars();
+
+  config.ps.on('scroll-mode', function () {
+    scrollMode = true;
+  });
+};
+
+exports.default = scrollController;
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _smoothscrollPolyfill = require('smoothscroll-polyfill');
 
 var _smoothscrollPolyfill2 = _interopRequireDefault(_smoothscrollPolyfill);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(function dgnin() {
+var sectionSwitcher = function sectionSwitcher(config) {
   var nav = document.querySelector('#web-nav ul');
   var title = document.querySelector('#web-header h1');
 
-  var section = 'home';
-
   _smoothscrollPolyfill2.default.polyfill();
   var changeSection = function changeSection(newSection) {
-    if (newSection !== section) {
-      section = newSection;
+    var scroll = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    if (newSection !== config.section) {
+      config.section = newSection;
       document.body.className = 'dg-' + newSection;
-      document.getElementById(newSection).scrollIntoView({
-        behavior: 'smooth'
-      });
+      if (scroll) {
+        config.ps.trigger('scroll-mode');
+        document.getElementById(newSection).scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
@@ -37,16 +196,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     };
     var el = getEl(ev.target);
     if (el) {
-      changeSection(el.className);
+      changeSection(el.className, true);
     }
   });
 
   title.addEventListener('click', function () {
-    changeSection('home');
+    changeSection('home', true);
   });
-})();
+  config.ps.on('section-changed', changeSection);
+};
 
-},{"smoothscroll-polyfill":2}],2:[function(require,module,exports){
+exports.default = sectionSwitcher;
+
+},{"smoothscroll-polyfill":5}],5:[function(require,module,exports){
 /* smoothscroll v0.4.0 - 2018 - Dustan Kasten, Jeremias Menichelli - MIT License */
 (function () {
   'use strict';
