@@ -1,0 +1,64 @@
+.dg-mail-st0{fill:#5DDDD3;}
+.dg-mail-st1{fill:#C10000;}
+.dg-mail-st2{fill:#FFFFFF;}
+.dg-mail-st3{fill:#ECF0F1;}
+.dg-mail-st4{fill:#FF5050;}
+.dg-mail-st5{fill:#B3B3B3;}
+.dg-mail-st6{fill:#F92B2B;}
+.dg-mail-st7{fill:#F7FAFA;}
+
+#contact {
+
+  .content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 10em;
+    height: 13.444em;
+  }
+
+  .image {
+    width: 8em;
+    height: 8em;
+    margin-bottom: 1em;
+
+    .icon {
+      height: 100%;
+    }
+  }
+
+  .text {
+    font-size: .72em;
+    width: 14em;
+  }
+
+  .mail-text {
+    width: 12.24em;
+    height: 1.84em;
+  }
+
+  p {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (min-width: 45em) {
+  #contact {
+    .content {
+      display: flex;
+      align-items: center;
+      width: 23em;
+      height: 8em;
+    }
+    .image {
+      margin-right: 1em;
+      margin-bottom: 0;
+    }
+    .text {
+      font-size: 1em;
+    }
+  }
+}
