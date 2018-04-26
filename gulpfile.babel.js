@@ -52,6 +52,10 @@ gulp.task('build-css', function () {
     .pipe(gulp.dest('build'));
 });
 
+gulp.task('watch-css', function () {
+  gulp.watch('./scss/**/*.scss', ['build-css']);
+});
+
 gulp.task('build-html', function () {
   gulp.src('html/index.html')
     .pipe(template(transCA))
