@@ -11,7 +11,7 @@
 
   .content {
     position: absolute;
-    top: 0;
+    top: $menuPadd;
     right: 0;
     bottom: 0;
     left: 0;
@@ -44,7 +44,11 @@
     margin-top: 0;
   }
 }
-
+@media only screen and (min-width: 30em) {
+  #contact .content {
+    top: 0;
+  }
+}
 @media only screen and (min-width: 45em) {
   #contact {
     .content {

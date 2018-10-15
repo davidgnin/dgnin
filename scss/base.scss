@@ -4,6 +4,8 @@ html, body {
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 25px;
+  min-width: 12.8em;
+  min-height: 22.72em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color $time;
@@ -13,7 +15,7 @@ body.dg-skills #web-nav .circle,
 body.dg-portfolio #web-nav .circle,
 body.dg-curriculum #web-nav .circle,
 body.dg-contact #web-nav .circle {
-  transition: top $time;
+  transition: top $time, left $time;
 }
 body.dg-skills #web-nav li.skills:hover,
 body.dg-portfolio #web-nav li.portfolio:hover,
@@ -37,17 +39,11 @@ body.dg-contact #web-nav li.contact:hover {
     body.dg-skills #web-header h1 {
       color: $green;
     }
-    body.dg-skills #web-nav .circle {
-      top: 0;
-    }
   body.dg-portfolio, body.dg-portfolio #web-nav .circle {
     background-color: $red;
   }
     body.dg-portfolio #web-header h1 {
       color: $red;
-    }
-    body.dg-portfolio #web-nav .circle {
-      top: 4em;
     }
   body.dg-curriculum, body.dg-curriculum #web-nav .circle {
     background-color: $violet;
@@ -55,20 +51,43 @@ body.dg-contact #web-nav li.contact:hover {
     body.dg-curriculum #web-header h1 {
       color: $violet;
     }
-    body.dg-curriculum #web-nav .circle {
-      top: 8em;
-    }
   body.dg-contact, body.dg-contact #web-nav .circle {
     background-color: $yellow;
   }
     body.dg-contact #web-header h1 {
       color: $yellow;
     }
-    body.dg-contact #web-nav .circle {
-      top: 12em;
-    }
+  body.dg-skills #web-nav .circle {
+    left: 0.8em;
+  }
+  body.dg-portfolio #web-nav .circle {
+    left: 4.8em;
+  }
+  body.dg-curriculum #web-nav .circle {
+    left: 8.8em;
+  }
+  body.dg-contact #web-nav .circle {
+    left: 12.8em;
+  }
 h1, h2 {
   margin: 0;
+}
+@media only screen and (min-width: 30em) {
+  #web-nav .circle {
+    left: 0 !important;
+  }
+  body.dg-skills #web-nav .circle {
+    top: 0;
+  }
+  body.dg-portfolio #web-nav .circle {
+    top: 4em;
+  }
+  body.dg-curriculum #web-nav .circle {
+    top: 8em;
+  }
+  body.dg-contact #web-nav .circle {
+    top: 12em;
+  }
 }
 
 .icon {
@@ -80,6 +99,12 @@ h1, h2 {
   box-sizing: border-box;
   position: relative;
   height: 100%;
+  padding-top: $menuPadd;
+}
+@media only screen and (min-width: 30em) {
+  .web-section {
+    padding-top: 0;
+  }
 }
 
 #web-svg {
@@ -87,33 +112,47 @@ h1, h2 {
 }
 
 #web-header {
-  width: 4em;
-  height: 100%;
-  background-color: #2D3436;
+  width: 100%;
+  background-color: $dark;
   position: fixed;
   top: 0;
   left: 0;
-}
-  #web-header h1 {
-    transform: rotate(-90deg);
-    margin-top: 3em;
+  z-index: 1;
+
+  h1 {
     cursor: pointer;
     transition: color $time;
-  }
-    #web-header h1 em {
+    text-align: center;
+
+    em {
       color: #FFF;
       font-style: normal;
     }
+  }
+}
+@media only screen and (min-width: 30em) {
+  #web-header {
+    width: 4em;
+    height: 100%;
+
+    h1 {
+      transform: rotate(-90deg);
+      margin-top: 3em;
+    }
+  }
+}
 
 #web-nav {
-  position: absolute;
-  bottom: 1em;
-  margin: 0 .8em;
+  position: relative;
+  margin: .25em auto .5em;
+  width: 16em;
+  font-size: .7em;
 
   ul {
     margin: 0;
     padding-left: 0;
     list-style: none;
+    display: flex;
   }
 
   li {
@@ -121,18 +160,12 @@ h1, h2 {
     height: 2.4em;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: 1.6em;
     transition: background-color $time;
+    position: relative;
+    margin: 0 .8em;
   }
   li:hover {
     background-color: #444;
-  }
-
-  .label {
-    display: none;
-    opacity: 0;
-    transition: opacity $time;
-    align-items: center;
   }
 
   .circle {
@@ -141,7 +174,6 @@ h1, h2 {
     width: 2.4em;
     height: 2.4em;
     left: 0;
-    margin-top: 1.6em;
     z-index: -1;
     transition: background-color $time;
   }
@@ -150,7 +182,30 @@ h1, h2 {
     transition: top $time;
   }
 }
+@media only screen and (min-width: 30em) {
+  #web-nav {
+    position: absolute;
+    bottom: 1em;
+    width: auto;
+    margin: 0 .8em;
+    font-size: 1em;
 
-#web-main {
-  margin-left: 4em;
+    ul {
+      display: block;
+    }
+
+    li {
+      margin: 1.6em 0 0;
+    }
+
+    .circle {
+      margin-top: 1.6em;
+    }
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  #web-main {
+    margin-left: 4em;
+  }
 }
