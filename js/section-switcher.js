@@ -13,7 +13,8 @@ let sectionSwitcher = function sectionSwitcher(config) {
       if (scroll) {
         config.ps.trigger('scroll-mode');
         document.getElementById(newSection).scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
+          block: 'start'
         });
       }
     }
