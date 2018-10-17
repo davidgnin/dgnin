@@ -134,16 +134,11 @@ h1, h2 {
   overflow: hidden;
 }
 .web-section .lateral-title {
-  position: absolute;
-  left: -50%;
-  top: calc(50vh - 0.5em);
-  width: 100%;
-  padding-left: 1.25em;
+  margin-top: 1em;
 
   h2 {
     text-align: center;
     text-transform: uppercase;
-    transform: rotate(-90deg);
     font-size: 1em;
     line-height: 1;
     opacity: .25;
@@ -152,6 +147,19 @@ h1, h2 {
 @media only screen and (min-width: 30em) {
   .web-section {
     padding-top: 0;
+
+    .lateral-title {
+      margin-top: 0;
+      position: absolute;
+      left: -50%;
+      top: calc(50vh - 0.5em);
+      width: 100%;
+      padding-left: 1.25em;
+
+      h2 {
+        transform: rotate(-90deg);
+      }
+    }
   }
 
   @media only screen and (min-height: 20em) {
