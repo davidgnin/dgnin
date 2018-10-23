@@ -1,0 +1,143 @@
+.dg-curriculum-st0{fill:#FFD05B;}
+.dg-curriculum-st1{fill:#2B3B4E;}
+.dg-curriculum-st2{fill:#F1543F;}
+.dg-curriculum-st3{fill:#E6E9EE;}
+.dg-curriculum-st4{fill:#FF7058;}
+.dg-curriculum-st5{fill:#F9B54C;}
+.dg-curriculum-st6{fill:#324A5E;}
+.dg-curriculum-2-st0{fill:#F24976;}
+.dg-curriculum-2-st1{fill:#445EA0;}
+.dg-curriculum-2-st2{fill:#2E4C89;}
+.dg-curriculum-2-st3{fill:#293D7C;}
+.dg-curriculum-2-st4{fill:#1A2B63;}
+.dg-curriculum-2-st5{fill:#FFFFFF;}
+.dg-curriculum-2-st6{fill:#D9EAFC;}
+.dg-curriculum-2-st7{fill:#FF9518;}
+.dg-curriculum-2-st8{fill:#5DC1D8;}
+.dg-curriculum-2-st9{fill:#28A5A5;}
+.dg-curriculum-2-st10{fill:#FFAF10;}
+.dg-curriculum-2-st11{fill:#DB722C;}
+.dg-curriculum-2-st12{fill:#69CDFF;}
+.dg-curriculum-2-st13{fill:#37C47A;}
+.dg-curriculum-3-st0{fill:#FFFFFF;}
+.dg-curriculum-3-st1{fill:#BCBBBB;}
+.dg-curriculum-3-st2{fill:#F48023;}
+.dg-curriculum-4-st0{fill:#F4A14E;}
+.dg-curriculum-4-st1{fill:#F9EED7;}
+.dg-curriculum-4-st2{fill:#E8DBC4;}
+.dg-curriculum-4-st3{fill:#FF525D;}
+.dg-curriculum-4-st4{fill:#5C5E70;}
+
+#curriculum {
+  .block {
+    margin: 0 1em;
+  }
+  @media only screen and (min-width: 42em) {
+    .content {
+      padding-left: 4.5em;
+    }
+  }
+  .experience {
+    position: relative;
+    display: flex;
+    height: 7em;
+
+    .image {
+      width: 4.188em;
+      height: 4em;
+      padding-right: .5em;
+    }
+
+    .data {
+      width: calc(100% - 4.688em);
+    }
+
+    h3 {
+      font-size: 1em;
+    }
+
+    .description {
+      font-size: .75em;
+      padding-top: .15em;
+    }
+
+    .time {
+      opacity: .5;
+      font-size: .6em;
+      font-style: italic;
+      padding-top: .25em;
+    }
+  }
+  .experience::after {
+    content: '';
+    border-right: solid 1px;
+    position: absolute;
+    top: 4em;
+    height: 3em;
+    left: calc(4.188em/2);
+  }
+  .block-1 {
+    padding-top: 1.5em;
+  }
+  .block-2 .experience:last-child::after {
+    display: none;
+  }
+  @media only screen and (min-width: 67em) {
+    .experiences {
+      display: flex;
+    }
+    .block {
+      padding-left: 1em;
+      width: 50%;
+    }
+    .block-1 .experience:last-child::after {
+      border-right-style: dashed;
+      height: 1em;
+    }
+    .block-2 {
+      padding-top: 1.5em;
+    }
+    .block-2 .experience:first-child::before {
+      content: '';
+      position: absolute;
+      left: calc(4.188em/2);
+      border-right: dashed 1px;
+      height: 1em;
+      bottom: 7em;
+    }
+  }
+
+  .download-buttons {
+    display: flex;
+    margin-top: 3em;
+
+    .button {
+      width: 50%;
+    }
+
+    .image {
+      width: 4em;
+      height: 4em;
+      margin: auto;
+    }
+
+    .label {
+      font-size: .75em;
+      font-weight: 900;
+      text-align: center;
+      padding: .5em;
+    }
+  }
+  @media only screen and (min-width: 48em) {
+    .download-buttons {
+      margin-left: auto;
+      width: 16em;
+      margin-right: 1em;
+    }
+  }
+  @media only screen and (min-width: 67em) {
+    .download-buttons {
+      margin-top: -3em;
+    }
+  }
+}

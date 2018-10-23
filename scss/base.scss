@@ -4,12 +4,17 @@ html, body {
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 25px;
+  font-weight: 300;
   min-width: 12.8em;
   min-height: 22.72em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color $time;
   color: #FFF;
+}
+body a {
+  color: inherit;
+  text-decoration: none;
 }
 body.dg-skills #web-nav .circle,
 body.dg-portfolio #web-nav .circle,
@@ -69,7 +74,7 @@ body.dg-contact #web-nav li.contact:hover {
   body.dg-contact #web-nav .circle {
     left: 12.8em;
   }
-h1, h2 {
+h1, h2, h3 {
   margin: 0;
   font-weight: 900;
 }
@@ -147,6 +152,10 @@ h1, h2 {
 @media only screen and (min-width: 30em) {
   .web-section {
     padding-top: 0;
+  }
+}
+@media only screen and (min-width: 42em) {
+  .web-section {
 
     .lateral-title {
       margin-top: 0;
