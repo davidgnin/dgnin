@@ -2,6 +2,9 @@
 export default {
   description: 'David Gómez Nin: Desenvolupador de software especialitzat en tecnologies web',
   skills: 'Habilitats',
+  skillsFrontend: 'Frontend',
+  skillsBackend: 'Backend',
+  skillsDesign: 'Disseny',
   portfolio: 'Portfolio',
   curriculum: 'Currículum',
   curriculumStudy: 'Universitat',
