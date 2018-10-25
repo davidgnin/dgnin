@@ -118,6 +118,10 @@ $label-font-size-redo: $default-size * 4;
   }
 }
 
+.skills-by-topic {
+  margin-bottom: 5em;
+}
+
 @media only screen and (min-width: 42em) {
   .skills-by-topic {
     padding-left: 4.5em;

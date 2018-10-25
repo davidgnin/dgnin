@@ -1,0 +1,81 @@
+.dg-portfolio-st0{fill:#FFFFFF;}
+.dg-portfolio-st1{fill:#9CDAF1;}
+.dg-portfolio-st2{fill:#7DBBE6;}
+.dg-portfolio-st3{fill:#F4CBB2;}
+.dg-portfolio-st4{fill:#AD5C51;}
+.dg-portfolio-st5{fill:#C3E4D8;}
+.dg-portfolio-st6{fill:#000;}
+
+#portfolio {
+
+  @media only screen and (min-width: 42em) {
+    .content {
+      padding-left: 4.5em;
+    }
+  }
+
+  .work {
+    .image {
+      margin: .75em 0;
+
+      img {
+        max-width: 100%;
+      }
+    }
+    .description {
+      font-size: .75em;
+    }
+    a {
+      display: block;
+      padding: 1em;
+    }
+  }
+  @media only screen and (min-width: 51em) {
+    .works {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 1em;
+    }
+    .work {
+      width: 50%;
+
+      h3 {
+        height: 3.45em;
+      }
+
+      .description {
+        font-size: .6em;
+      }
+    }
+  }
+  @media only screen and (min-width: 51em) {
+    .work h3 {
+      height: 2.30em;
+    }
+  }
+
+  .download-buttons {
+    margin-top: 1em;
+    margin-bottom: 3em;
+
+    .image {
+      width: 4em;
+      height: 4em;
+      margin: auto;
+    }
+
+    .label {
+      font-size: .75em;
+      font-weight: 900;
+      text-align: center;
+      padding: .5em;
+    }
+  }
+  @media only screen and (min-width: 48em) {
+    .download-buttons {
+      margin-left: auto;
+      width: 8em;
+      margin-right: 1em;
+    }
+  }
+}

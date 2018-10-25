@@ -6,6 +6,8 @@ export default {
   skillsBackend: 'Backend',
   skillsDesign: 'Disseny',
   portfolio: 'Portfolio',
+  portfolioGitHub: 'GitHub',
+  portfolioGitHubText: 'Visita el meu GitHub',
   curriculum: 'Currículum',
   curriculumStudy: 'Universitat',
   curriculumWork: 'Feina',
