@@ -122,6 +122,11 @@ $label-font-size-redo: $default-size * 4;
   margin-bottom: 5em;
 }
 
+.description {
+  font-size: .75em;
+  margin: 0 .75em;
+}
+
 @media only screen and (min-width: 42em) {
   .skills-by-topic {
     padding-left: 4.5em;
