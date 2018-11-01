@@ -1,5 +1,8 @@
 'use strict';
 export default {
+  ca: 'Catalán',
+  es: 'Español',
+  en: 'Inglés',
   description: 'David Gómez Nin: Programador especializado en Desarrollo Web',
   homeH2: 'David Gómez Nin',
   homeSubtitle: 'Programador especializado en Desarrollo Web',

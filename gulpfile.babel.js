@@ -13,6 +13,7 @@ import sass from 'gulp-sass';
 import cssmin from 'gulp-cssmin';
 import template from 'gulp-template';
 import transCA from './translates/ca';
+import transES from './translates/es';
 
 const NAME = 'script';
 
@@ -59,7 +60,10 @@ gulp.task('watch-css', function () {
 gulp.task('build-html', function () {
   gulp.src('html/index.html')
     .pipe(template(transCA))
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('build/ca'));
+  gulp.src('html/index.html')
+    .pipe(template(transES))
+    .pipe(gulp.dest('build/es'));
 });
 
 gulp.task('build', function () {

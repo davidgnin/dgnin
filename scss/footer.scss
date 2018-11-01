@@ -1,0 +1,35 @@
+#web-footer {
+  position: fixed;
+  bottom: .25em;
+  right: 0;
+  background-color: $dark;
+  font-size: .75em;
+  padding-left: .25em;
+  border-top-left-radius: .25em;
+  border-bottom-left-radius: .25em;
+  opacity: .5;
+  transition: opacity $time;
+
+  .language-selector {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    li {
+      display: inline-block;
+    }
+
+    a {
+      display: block;
+      padding: .25em;
+      transition: background-color $time;
+    }
+    a:hover {
+      background-color: #444;
+    }
+  }
+}
+
+#web-footer:hover {
+  opacity: 1;
+}
