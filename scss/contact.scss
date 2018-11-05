@@ -8,6 +8,7 @@
 .dg-mail-st7{fill:#F7FAFA;}
 
 #contact {
+  min-height: 18em;
 
   .content {
     position: absolute;
@@ -47,6 +48,11 @@
 
   p {
     margin-top: 0;
+  }
+}
+@media only screen and (min-height: 28.125em) {
+  #contact {
+    min-height: 100vh;
   }
 }
 @media only screen and (min-width: 30em) {
