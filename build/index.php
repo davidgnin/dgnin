@@ -5,11 +5,11 @@ $lang = array_map(function ($value) {
 }, $ready);
 
 if (in_array('ca', $lang)) {
-  header('Location: http://'.$_SERVER['SERVER_NAME'].'/dgnin/ca');
+  header('Location: http://'.$_SERVER['SERVER_NAME'].'/ca');
 } else if (in_array('es', $lang)) {
-  header('Location: http://'.$_SERVER['SERVER_NAME'].'/dgnin/es');
+  header('Location: http://'.$_SERVER['SERVER_NAME'].'/es');
 } else {
-  header('Location: http://'.$_SERVER['SERVER_NAME'].'/dgnin/en');
+  header('Location: http://'.$_SERVER['SERVER_NAME'].'/en');
 }
 
 ?>
